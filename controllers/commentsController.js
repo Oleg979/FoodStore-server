@@ -43,3 +43,11 @@ router.get("/:id", (req, res) => {
         res.status(200).send(comments);
     });
 });
+
+router.get("/", (req, res) => {
+    Comment.find({ }, (err, comments) => {
+        if (err)
+            return res.status(500).send("Произошла ошибка на сервере.");
+        res.status(200).send(comments);
+    });
+});
